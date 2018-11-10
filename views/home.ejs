@@ -81,8 +81,8 @@
                               </div>
                               <nav class="level is-mobile">
                                 <div class="level-left">
-                                  <a href="/beets/like/<%=beets[i]._id%>" class="level-item" aria-label="like">
-                                    <span class="icon is-small">
+                                  <a class="level-item" aria-label="like">
+                                    <span id="<%=beets[i]._id%>_like_icon" class="icon is-small" onclick="likePressed(this)">
                                       <% var flag = false;
                                          for (var j=0; j<beets[i].likes.length; j++) {
                                            if (beets[i].likes[j].username == user.username)
@@ -95,7 +95,7 @@
                                       <% } %>
                                     </span>
                                   </a>
-                                  <small><%= beets[i].likes.length %></small>
+                                  <small id="<%=beets[i]._id%>_like_count"><%= beets[i].likes.length %></small>
                                 </div>
                               </nav>
                             </div>
