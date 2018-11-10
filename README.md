@@ -9,7 +9,7 @@
 ## What is it?  
 
 A platform to beet you feelings and see what other people are beeting about. <br> 
-This was hacked when I decided to teach myself some web dev under two days, as a result of which it is mostly incomplete. <br>
+This was hacked when I decided to teach myself some web dev under two days, as a result of which it is mostly incomplete. <br> <br>
 Back-end -> Node, Express, Passport and Mongoose. <br>
 Database -> MongoDB. <br>
 Front-end -> Bulma in Embedded JavaScript.   
