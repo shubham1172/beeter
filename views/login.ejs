@@ -1,0 +1,65 @@
+<!-- views/login.ejs -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beeter!</title>
+    <link rel="stylesheet" href="/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script defer src="/js/fontawesome.js"></script>
+  </head>
+  <body style="background-color:#e1e6ee">
+  <header>
+    <% include partials/header %>
+  </header>
+  <section class="section">
+    <div class="containers" id="login_container">
+        <div class="card">
+            <div class="card-content">
+                <div class="content">
+                    <div class='title'>
+                        Log in to Beeter
+                    </div>
+                    <div class="has-text-danger">
+                        <%= error %>
+                    </div>
+                    <form action="/login" method="post" id="login_form">
+                        <div class="field">
+                            <div class="control">
+                                <input name="username" class="input" type="text" placeholder="username">
+                                </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input name="password" class="input" type="password" placeholder="password">
+                            </div>
+                        </div> <br>
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button form="login_form" value="Submit" class="button is-info is-rounded">Log in</button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+  </section>
+  <footer>
+      <% include partials/footer %>
+  </footer>
+  </body>
+  <script>
+    if (screen.width > 768) {
+        document.getElementById("login_container").setAttribute("class", "centered-resized")
+    }
+    window.addEventListener("resize", function() {
+        if (screen.width > 768) {
+            document.getElementById("login_container").setAttribute("class", "centered-resized")
+        } else {
+            document.getElementById("login_container").removeAttribute("class", "centered-resized")
+        }
+    });   
+  </script>
+</html>

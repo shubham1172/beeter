@@ -1,0 +1,64 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beeter!</title>
+    <link rel="stylesheet" href="/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script defer src="/js/fontawesome.js"></script>
+  </head>
+  <body>
+  <header>
+      <% include partials/header %>
+  </header>
+  <section class="section">
+    <div class="container">
+        <div class="columns .is-variable">
+            <div class="column is-hidden-mobile">
+                <div class="tile">
+                    <div class="tile is-parent is-vertical">
+                        <article class="tile is-child notification is-info">
+                            <p class="title">Top things to do ...</p>
+                            <p class="is-size-5">
+                                <span class="icon" style="padding:20px;">
+                                    <i class="fas fa-users"></i>
+                                </span>
+                                See what your friends are beeting about. <br>
+                            </p>
+                            <p class="is-size-5">
+                                <span class="icon" style="padding:20px;">
+                                    <i class="fas fa-retweet"></i>
+                                </span>
+                                Rebeet favorite answers. <br>
+                            </p>
+                            <p class="is-size-5">
+                                <span class="icon" style="padding:20px;">
+                                    <i class="far fa-comment"></i>
+                                </span>
+                                Join conversations. <br>
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                    <h1 class="title">
+                        See what's happening in the world right now.
+                    </h1> <br> <br>
+                    <p class="is-size-5">
+                       <strong>Join Beeter today.</strong>
+                    </p>
+                    <a class="button is-info is-rounded is-fullwidth" href="/signup">Sign Up</a> <br>
+                    <a class="button is-rounded is-fullwidth" href="/login">Log In</a>
+            </div>
+        </div>
+    </div>
+  </section>
+  <footer>
+      <% include partials/footer %>
+  </footer>
+  </body>
+</html>
