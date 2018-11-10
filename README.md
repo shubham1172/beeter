@@ -1,7 +1,9 @@
 <h1 align="center"> BEETER </h1>    
     
 <p align="center">    
- <img src="./docs/images/desktop.png" alt="desktop.png"/>  <img src="./docs/images/mobile.png" alt="mobile.png"/> 
+ <img src="./docs/images/desktop.png" alt="desktop.png"/> 
+ <img src="./docs/images/mobile1.png" alt="mobile.png"/>
+ <img src="./docs/images/mobile2.png" alt="mobile.png"/>  
  </p>   
  
 ## What is it?  
