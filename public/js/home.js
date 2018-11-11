@@ -14,14 +14,13 @@ function likePressed(e){
   var beet_id = e.id.split("_")[0]
   var likeCounter = document.getElementById(`${beet_id}_like_count`) 
   url = `/beets/like/${beet_id}`
-  console.log("fetching ", url)
   fetch(url)
     .then(function(response){
       if (response.status !== 200){
         console.log(`Error with ${url}`)
         return
       }
-      /** update the counter and logo */
+      /** update the counter and icon */
       var curr = e.children[0].getAttribute('data-prefix')
       if (curr == "far"){
         e.children[0].setAttribute('data-prefix', 'fas')

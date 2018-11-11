@@ -57,15 +57,17 @@ exports.delete_beet = (req, res) => {
 
 exports.like = (req, res) => {
     Beet.findOne({_id: req.params.id, likes: req.user}, function(err, beet){
-        if (err) res.redirect('/')
+        if (err) res.status(500).send({"message": err.message})
         else if (!beet) {
             // possibly id not found or like does not exist
             Beet.findById(req.params.id, function(err, new_beet){
-                if (err) res.redirect('/')
-                new_beet.likes.push(req.user)
-                new_beet.save((err, new_new_beet) => {
-                    res.redirect('/')
-                })
+                if (err) res.status(500).send({"message": err.message})
+                else {
+                    new_beet.likes.push(req.user)
+                    new_beet.save((err, new_new_beet) => {
+                        res.redirect('/')
+                    })
+                }
             })
         }
         else {
@@ -74,23 +76,9 @@ exports.like = (req, res) => {
                 return element.username != req.user.username
             })
             beet.save((err, new_beet) => {
-                res.redirect('/')
+                if (err) res.status(500).send({"message": err.message})
+                else res.redirect('/')
             })
         }
     })
 }
-
-  /** 
-            {
-                // remove it
-                console.log("removing")
-                beet.likes = beet.likes.filter(function(element, i) {
-                    return element != req.user
-                });
-            } else {
-                console.log("adding")
-                // beet.likes.push(req.user)
-            }
-            beet.save((err, new_beet)=> {
-                res.redirect('/')
-            })*/
