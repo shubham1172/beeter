@@ -18,6 +18,7 @@ Front-end -> Bulma in Embedded JavaScript.
 ## Install 
 ``` 
 $ git clone https://github.com/shubham1172/beeter
+$ cd beeter
 $ npm install 
 ``` 
 
