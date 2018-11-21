@@ -13,7 +13,7 @@ function id_checker(req, res, next) {
         res.status(400).send({'message': 'Invalid beet id.'})
 }
 
-/** /beet/<route> */
+/** /beets/<route> */
 
 router.get('/', util.isAuthenticated, beet_controller.get_beets)
 router.get('/:id', util.isAuthenticated, id_checker, beet_controller.get_beet)

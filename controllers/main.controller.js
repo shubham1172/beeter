@@ -7,7 +7,7 @@ exports.index = (req, res) => {
         if (beets.status == 200)
             res.render('../views/home', {user: req.user, beets: beets["data"], error: req.params.error})
         else
-            res.render('../views/home/', {user: req.user, beets: null, error: beets["data"]})
+            res.render('../views/home', {user: req.user, beets: null, error: beets["data"]})
     })
 }
 
