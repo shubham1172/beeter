@@ -8,6 +8,7 @@ const User = require('./models/user.model')
 
 const main_route = require('./routes/main.route')
 const beet_route = require('./routes/beet.route')
+const user_route = require('./routes/user.route')
 
 const app = express()
 
@@ -30,6 +31,7 @@ passport.deserializeUser(User.deserializeUser())
 
 app.use(main_route)
 app.use('/beets', beet_route)
+app.use('/users', user_route)
 
 let db_url = "mongodb://localhost:27017/testdb"
 mongoose.connect(db_url, {useNewUrlParser: true})
