@@ -24,7 +24,7 @@
   </head>
   <body>
   <header>
-      <% include partials/header %>
+      <%- include('partials/header', {user: user}); %>
   </header>
   <section class="section" style="background-color:#e1e6ee;padding:0">
     <div class="container">

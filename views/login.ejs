@@ -12,7 +12,7 @@
   </head>
   <body style="background-color:#e1e6ee">
   <header>
-    <% include partials/header %>
+    <%- include('partials/header', {user: null}); %>
   </header>
   <section class="section">
     <div class="containers" id="login_container">

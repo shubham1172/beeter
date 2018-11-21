@@ -4,4 +4,22 @@
     <div class="navbar-brand">
         <a href = '/'> <strong class='is-size-3 has-text-info' style="padding:20px"> BEETER </strong></a>
     </div>
+    <% if (user) { %> 
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <form action="/users/<%=user.username%>" method="GET" id="form_profile">
+            </form>
+            <button class="button is-info is-rounded" style="width: 2px" type="submit" form="form_profile">
+                <span class="icon">
+                    <i class="fas fa-user-circle fa-2x" aria-hidden="true"></i>
+                </span>
+             </button>            
+        </div>
+        <div class="navbar-item">
+          <form action="/logout" method="get">
+            <input type="submit" class="button is-info " value="Logout" name="Submit"/>
+          </form>
+        </div>
+    </div>
+    <% } %>
 </nav>
