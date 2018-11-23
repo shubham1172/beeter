@@ -34,3 +34,26 @@ function likePressed(e){
       console.log(err)
     })
 }
+
+function getTimeDifference(date){
+  var curr = new Date()
+  var old = new Date(date)
+  diff = (curr.getTime() - old.getTime())/(60*1000)
+  if (diff/(60*24*365) > 1)
+      return Math.round(diff/(60*24*365)) + "y" // years
+  else if (diff/(60*24*30) > 1)
+      return Math.round(diff/(60*24*30)) + "m"  // months
+  else if (diff/(60*24) > 1)
+      return Math.round(diff/(60*24)) + "d"     // days
+  else if (diff/60 > 1)
+      return Math.round(diff/60) + "h"          // hours
+  else
+      return Math.round(diff) + "m"             // months
+}
+
+window.onload = function(){
+  var beets = document.getElementsByClassName('timestamp')
+  for(var i = 0; i < beets.length; i++){
+    beets[i].innerHTML = getTimeDifference(beets[i].innerHTML)
+  }
+}

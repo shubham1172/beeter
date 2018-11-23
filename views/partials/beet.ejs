@@ -1,0 +1,38 @@
+<div class="box">
+    <article>
+      <div class="content">
+        <div class="content">
+          <p>
+            <strong><%= beet.author.name %></strong>
+            <small>
+            <a href="/users/<%= beet.author.username %>">
+                @<%= beet.author.username %>
+            </a>
+            </small>
+            <small class='timestamp'><%= beet.timestamp %></small>
+            <br>
+            <%= beet.content %>
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <a class="level-item" aria-label="like">
+              <span id="<%=beet._id%>_like_icon" class="icon is-small" onclick="likePressed(this)">
+                <% var flag = false;
+                   for (var j=0; j<beet.likes.length; j++) {
+                     if (beet.likes[j].username == user.username)
+                        flag = true
+                    }
+                   if (flag) { %>
+                  <i class="fas fa-heart" aria-hidden="true"></i>  
+                <% } else { %>
+                  <i class="far fa-heart" aria-hidden="true"></i>
+                <% } %>
+              </span>
+            </a>
+            <small id="<%=beet._id%>_like_count"><%= beet.likes.length %></small>
+          </div>
+        </nav>
+      </div>
+    </article>
+  </div>

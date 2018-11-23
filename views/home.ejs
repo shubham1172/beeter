@@ -9,18 +9,7 @@
     <link rel="stylesheet" href="/css/bulma.min.css">
     <link rel="stylesheet" href="/css/index.css">
     <script defer src="/js/fontawesome.js"></script>
-    <script defer src="/js/home.js"></script>
-    <%
-      function getTimeDifference(date){
-        var curr = new Date()
-        var old = new Date(date)
-        diff = (curr.getTime() - old.getTime())/(60*1000)
-        if (diff/60 > 1)
-            return Math.round(diff/60) + "h"
-        else
-            return Math.round(diff) + "m"
-      }
-      %>
+    <script defer src="/js/beet.js"></script>
   </head>
   <body>
   <header>
@@ -51,7 +40,7 @@
                                 <textarea class="textarea" name="content" 
                                 placeholder="What's happening?" rows="1" 
                                 onfocus="textAreaOnFocus(this)"
-                                onblur="textAreaOnBlur(this)" ></textarea>
+                                onblur="textAreaOnBlur(this)"></textarea>
                               </p>
                               <input id="beet_button" type="submit" class="button is-info" 
                               style="display:none" value="Beet" name="Submit"/>
@@ -61,46 +50,8 @@
                     </article>
                 </div>               
                 <div class="tile is-child box" id="beets_div">
-                  <% %>
                   <% for(var i=0; i<beets.length; i++) {%>
-                      <div class="box">
-                          <article>
-                            <div class="content">
-                              <div class="content">
-                                <p>
-                                  <strong><%= beets[i].author.name %></strong>
-                                  <small>
-                                  <a href="/users/<%= beets[i].author.username %>">
-                                      @<%= beets[i].author.username %>
-                                  </a>
-                                  </small>
-                                  <small><%= getTimeDifference(beets[i].timestamp) %></small>
-                                  <br>
-                                  <%= beets[i].content %>
-                                </p>
-                              </div>
-                              <nav class="level is-mobile">
-                                <div class="level-left">
-                                  <a class="level-item" aria-label="like">
-                                    <span id="<%=beets[i]._id%>_like_icon" class="icon is-small" onclick="likePressed(this)">
-                                      <% var flag = false;
-                                         for (var j=0; j<beets[i].likes.length; j++) {
-                                           if (beets[i].likes[j].username == user.username)
-                                              flag = true
-                                          }
-                                         if (flag) { %>
-                                        <i class="fas fa-heart" aria-hidden="true"></i>  
-                                      <% } else { %>
-                                        <i class="far fa-heart" aria-hidden="true"></i>
-                                      <% } %>
-                                    </span>
-                                  </a>
-                                  <small id="<%=beets[i]._id%>_like_count"><%= beets[i].likes.length %></small>
-                                </div>
-                              </nav>
-                            </div>
-                          </article>
-                        </div>
+                    <%- include('partials/beet', {beet: beets[i]}); %>
                   <% } %>
                 </div>
               </div>
